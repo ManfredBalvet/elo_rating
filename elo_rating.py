@@ -10,20 +10,22 @@ with open("elo_rating.json", "r") as file:
 
 # data = record_new_game(team_A, score_A, score_B, team_B, data)
  
-# Simulate games
-games_to_simulate = 3*20*4
-players = ["Manfred", "David", "Oliver", "Sidney", "Brandon"]
-for game in range(games_to_simulate):
-    random.shuffle(players)
-    team_A = [players[0], players[1]]
-    team_B = [players[2], players[3]]
-    point_gap = random.randint(2, 11)
-    score = [11, 11 - point_gap]
-    random.shuffle(score)
-    score_A = score[0]
-    score_B = score[1]
-    print(f"Game {game + 1}: {team_A[0]} & {team_A[1]} {score_A}:{score_B} {team_B[0]} & {team_B[1]}")
-    data = record_new_game(team_A, score_A, score_B, team_B, data)
+# # Simulate games
+# games_to_simulate = 3*20*4
+# players = ["Manfred", "David", "Oliver", "Sidney", "Brandon"]
+# for game in range(games_to_simulate):
+#     random.shuffle(players)
+#     team_A = [players[0], players[1]]
+#     team_B = [players[2], players[3]]
+#     point_gap = random.randint(2, 11)
+#     score = [11, 11 - point_gap]
+#     random.shuffle(score)
+#     score_A = score[0]
+#     score_B = score[1]
+#     print(f"Game {game + 1}: {team_A[0]} & {team_A[1]} {score_A}:{score_B} {team_B[0]} & {team_B[1]}")
+#     data = record_new_game(team_A, score_A, score_B, team_B, data)
+
+data = record_new_game(["Manfred"], 11, 8, ["David"], data)
 
 data = OrderedDict(sorted(data.items(),
        key = lambda x: getitem(x[1], 'elo'), reverse=True))
