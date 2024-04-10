@@ -32,7 +32,7 @@ data = OrderedDict(sorted(data.items(),
 
 print('| Name | elo | elo_change | game_played | win | loss | draw |')
 for player, value in data.items():
-    print(player + "{:^10} {:^10} {:^10} {:^10} {:^10} {:^10}".format(value["elo"], value["elo_change"], value["game_played"], value["win"], value["loss"], value["draw"]))
+    print(player + "{:8} {:7} {:10} {:10} {:6} {:6}".format(value["elo"], value["elo_change"], value["game_played"], value["win"], value["loss"], value["draw"]))
 
 with open("elo_rating.json", "w") as json_file:
     json.dump(data, json_file)
