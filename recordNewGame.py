@@ -37,7 +37,7 @@ def record_new_game(team_A, score_A, score_B, team_B, data):
 
     for i, player in enumerate(team_A + team_B):
         if player not in data.keys():
-            data[player] = {"elo" : 1500, "elo_change" : 0, "game_played" : 0, "win" : 0, "loss" : 0, "draw" : 0}
+            data[player] = {"elo" : 1500, "elo_change" : 0, "game_played" : 0, "win" : 0, "loss" : 0, "w/l" : 0}
         
         if player in team_A:
             team = "A"
@@ -85,10 +85,13 @@ def record_new_game(team_A, score_A, score_B, team_B, data):
         
         if players[i].result == 0:
             data[player]["loss"] += 1
-        elif players[i].result == 0.5:
-            data[player]["draw"] += 1
         elif players[i].result == 1:
             data[player]["win"] += 1
+
+        if data[player]["loss"] == 0:
+            data[player]["w/l"] = data[player]["win"]
+        else:
+            data[player]["w/l"] = round(data[player]["win"]/data[player]["loss"], 2)
 
         data[player]["elo_change"] = round(players[i].k * players[i].point_factor * (players[i].result - ((players[i].expected_team_score + players[i].expected_player_score)/2)))
         data[player]["elo"] = players[i].elo + data[player]["elo_change"]
