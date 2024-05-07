@@ -29,25 +29,15 @@ data = record_new_game(["Manfred", "Sidney"], 10, 12, ["Oliver"], data)
 data = record_new_game(["Manfred", "Oliver"], 10, 12, ["Sidney"], data)
 data = record_new_game(["Manfred"], 11, 9, ["Oliver", "Sidney"], data)
 
-data = record_new_game(["Manfred"], 11, 7, ["Sidney"], data)
-data = record_new_game(["Sidney"], 12, 10, ["Oliver"], data)
-data = record_new_game(["Manfred"], 11, 9, ["Oliver"], data)
 
-data = record_new_game(["David", "Sidney"], 11, 3, ["Oliver"], data)
-data = record_new_game(["Manfred", "Sidney"], 11, 3, ["Oliver", "David"], data)
-data = record_new_game(["Manfred", "Sidney"], 8, 11, ["Oliver", "David"], data)
-data = record_new_game(["Manfred", "Sidney"], 11, 5, ["Oliver", "David"], data)
-data = record_new_game(["David", "Sidney"], 11, 7, ["Oliver", "Brandon"], data)
-data = record_new_game(["David", "Sidney"], 11, 9, ["Oliver", "Brandon"], data)
-data = record_new_game(["Manfred", "Sidney"], 9, 11, ["Oliver", "Brandon"], data)
-data = record_new_game(["Manfred", "Sidney"], 11, 5, ["Oliver", "Brandon"], data)
 
 data = OrderedDict(sorted(data.items(),
        key = lambda x: getitem(x[1], 'elo'), reverse=True))
 
 print('| Name | elo | elo_change | game_played | win | loss | w/l |')
 for player, value in data.items():
-    print(player + "{:8} {:7} {:10} {:10} {:6} {:6}".format(value["elo"], value["elo_change"], value["game_played"], value["win"], value["loss"], value["w/l"]))
+    if value["game_played"] >= 10:
+        print(player + "{:8} {:7} {:10} {:10} {:6} {:6}".format(value["elo"], value["elo_change"], value["game_played"], value["win"], value["loss"], value["w/l"]))
 
 with open("elo_rating.json", "w") as json_file:
     json.dump(data, json_file)
