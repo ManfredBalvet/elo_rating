@@ -23,12 +23,10 @@ with open("elo_rating.json", "r") as file:
 #     score_A = score[0]
 #     score_B = score[1]
 #     print(f"Game {game + 1}: {team_A[0]} & {team_A[1]} {score_A}:{score_B} {team_B[0]} & {team_B[1]}")
+
+
 #     data = record_new_game(team_A, score_A, score_B, team_B, data)
-
-data = record_new_game(["Manfred", "Sidney"], 10, 12, ["Oliver"], data)
-data = record_new_game(["Manfred", "Oliver"], 10, 12, ["Sidney"], data)
-data = record_new_game(["Manfred"], 11, 9, ["Oliver", "Sidney"], data)
-
+data = record_new_game(["Manfred", "Sidney"], 32, 30, ["David", "Oliver"], data)
 
 
 data = OrderedDict(sorted(data.items(),
