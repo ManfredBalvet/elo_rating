@@ -1,1 +1,15 @@
-{"Shilei": {"elo": 1701, "elo_change": 32, "game_played": 17, "win": 13, "loss": 4, "w/l": 3.25}, "Aniruddh": {"elo": 1570, "elo_change": 31, "game_played": 2, "win": 2, "loss": 0, "w/l": 2}, "Brandon": {"elo": 1543, "elo_change": 33, "game_played": 85, "win": 38, "loss": 47, "w/l": 0.81}, "Jeremy": {"elo": 1539, "elo_change": 39, "game_played": 1, "win": 1, "loss": 0, "w/l": 1}, "Manfred": {"elo": 1472, "elo_change": -31, "game_played": 162, "win": 85, "loss": 77, "w/l": 1.1}, "Sidney": {"elo": 1463, "elo_change": -28, "game_played": 159, "win": 76, "loss": 83, "w/l": 0.92}, "Chinmay": {"elo": 1409, "elo_change": -42, "game_played": 2, "win": 0, "loss": 2, "w/l": 0.0}, "Jordan": {"elo": 1359, "elo_change": -41, "game_played": 5, "win": 1, "loss": 4, "w/l": 0.25}, "David": {"elo": 1333, "elo_change": -25, "game_played": 107, "win": 52, "loss": 55, "w/l": 0.95}, "Ricardo": {"elo": 1324, "elo_change": -37, "game_played": 4, "win": 0, "loss": 4, "w/l": 0}, "Oliver": {"elo": 1285, "elo_change": 66, "game_played": 142, "win": 71, "loss": 71, "w/l": 1.0}}
+{
+    "Shilei": {"elo": 1701, "elo_change": 32, "game_played": 17, "win": 13, "loss": 4, "w/l": 3.25}, 
+    "Aniruddh": {"elo": 1570, "elo_change": 31, "game_played": 2, "win": 2, "loss": 0, "w/l": 2}, 
+    "Oliver": {"elo": 1557, "elo_change": 32, "game_played": 174, "win": 89, "loss": 85, "w/l": 1.05}, 
+    "Jeremy": {"elo": 1539, "elo_change": 39, "game_played": 1, "win": 1, "loss": 0, "w/l": 1}, 
+    "Sidney": {"elo": 1465, "elo_change": -34, "game_played": 200, "win": 101, "loss": 99, "w/l": 1.02}, 
+    "Brandon": {"elo": 1436, "elo_change": 43, "game_played": 111, "win": 53, "loss": 58, "w/l": 0.91}, 
+    "Genevieve": {"elo": 1431, "elo_change": -69, "game_played": 1, "win": 0, "loss": 1, "w/l": 0.0}, 
+    "David": {"elo": 1415, "elo_change": -36, "game_played": 140, "win": 66, "loss": 74, "w/l": 0.89}, 
+    "Chinmay": {"elo": 1409, "elo_change": -42, "game_played": 2, "win": 0, "loss": 2, "w/l": 0.0}, 
+    "Manfred": {"elo": 1355, "elo_change": 55, "game_played": 170, "win": 87, "loss": 83, "w/l": 1.05}, 
+    "Ricardo": {"elo": 1324, "elo_change": -37, "game_played": 4, "win": 0, "loss": 4, "w/l": 0}, 
+    "Jordan": {"elo": 1296, "elo_change": -52, "game_played": 8, "win": 2, "loss": 6, "w/l": 0.33}, 
+    "Kayra": {"elo": 1216, "elo_change": -33, "game_played": 14, "win": 3, "loss": 11, "w/l": 0.27}
+}
