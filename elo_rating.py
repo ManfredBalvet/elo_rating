@@ -28,10 +28,21 @@ with open("elo_rating.json", "r") as file:
 #     data = record_new_game(team_A, score_A, score_B, team_B, data)
 
 
-data = record_new_game(["David", "Kayra"], 12, 10, ["Oliver", "Sidney"], data)
-data = record_new_game(["David", "Sidney"], 11, 9, ["Manfred", "Kayra"], data)
 
+data = record_new_game(["David", "Kayra"], 11, 9, ["Sidney", "Oliver"], data)
+data = record_new_game(["David", "Kayra"], 9, 11, ["Shilei", "Oliver"], data)
+data = record_new_game(["David", "Kayra"], 6, 11, ["Shilei", "Oliver"], data)
+data = record_new_game(["Sidney", "Manfred"], 12, 10, ["Kayra", "Oliver"], data)
+data = record_new_game(["David", "Oliver"], 11, 8, ["Jordan", "Kayra"], data)
+data = record_new_game(["Jordan", "Shilei"], 11, 5, ["Manfred", "Sidney"], data)
+data = record_new_game(["David", "Oliver"], 11, 9, ["Shilei", "Jordan"], data)
 
+data = record_new_game(["Sidney"], 11, 6, ["Oliver"], data)
+data = record_new_game(["Sidney"], 4, 11, ["Oliver"], data)
+data = record_new_game(["Sidney"], 5, 11, ["Oliver"], data)
+data = record_new_game(["Sidney"], 2, 11, ["Oliver"], data)
+data = record_new_game(["Sidney"], 9, 11, ["Oliver"], data)
+data = record_new_game(["Kayra"], 5, 11, ["Oliver"], data)
 
 data = OrderedDict(sorted(data.items(),
        key = lambda x: getitem(x[1], 'elo'), reverse=True))
