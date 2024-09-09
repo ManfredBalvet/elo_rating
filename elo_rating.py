@@ -28,29 +28,54 @@ with open("elo_rating.json", "r") as file:
 #     data = record_new_game(team_A, score_A, score_B, team_B, data)
 
 
+data = record_new_game(["Brandon"], 11, 7, ["Sidney"], data)
+data = record_new_game(["David", "Oliver"], 11, 8, ["Manfred", "Jordan"], data)
+data = record_new_game(["David", "Oliver"], 11, 8, ["Manfred", "Brandon"], data)
+data = record_new_game(["David", "Oliver"], 11, 4, ["Manfred", "Brandon"], data)
+data = record_new_game(["David", "Oliver"], 11, 8, ["Manfred", "Brandon"], data)
+data = record_new_game(["Brandon", "Oliver"], 12, 10, ["Matthew", "Moustache"], data)
+data = record_new_game(["Brandon", "Oliver"], 11, 4, ["Matthew", "Moustache"], data)
 
-data = record_new_game(["David", "Kayra"], 11, 9, ["Sidney", "Oliver"], data)
-data = record_new_game(["David", "Kayra"], 9, 11, ["Shilei", "Oliver"], data)
-data = record_new_game(["David", "Kayra"], 6, 11, ["Shilei", "Oliver"], data)
-data = record_new_game(["Sidney", "Manfred"], 12, 10, ["Kayra", "Oliver"], data)
-data = record_new_game(["David", "Oliver"], 11, 8, ["Jordan", "Kayra"], data)
-data = record_new_game(["Jordan", "Shilei"], 11, 5, ["Manfred", "Sidney"], data)
-data = record_new_game(["David", "Oliver"], 11, 9, ["Shilei", "Jordan"], data)
+data = record_new_game(["David"], 5, 11, ["Brandon"], data)
+data = record_new_game(["Brandon"], 6, 11, ["Manfred"], data)
+data = record_new_game(["David"], 11, 8, ["Manfred"], data)
+data = record_new_game(["Brandon"], 11, 9, ["David"], data)
+data = record_new_game(["Brandon"], 11, 5, ["Manfred"], data)
+data = record_new_game(["David"], 11, 7, ["Brandon"], data)
+data = record_new_game(["David"], 12, 10, ["Manfred"], data)
+data = record_new_game(["Brandon"], 11, 7, ["Manfred"], data)
 
-data = record_new_game(["Sidney"], 11, 6, ["Oliver"], data)
-data = record_new_game(["Sidney"], 4, 11, ["Oliver"], data)
-data = record_new_game(["Sidney"], 5, 11, ["Oliver"], data)
-data = record_new_game(["Sidney"], 2, 11, ["Oliver"], data)
-data = record_new_game(["Sidney"], 9, 11, ["Oliver"], data)
-data = record_new_game(["Kayra"], 5, 11, ["Oliver"], data)
+data = record_new_game(["Brandon"], 11, 4, ["Manfred"], data)
+data = record_new_game(["David"], 10, 12, ["Brandon"], data)
+data = record_new_game(["Brandon"], 12, 10, ["Manfred"], data)
+data = record_new_game(["David"], 11, 7, ["Brandon"], data)
+data = record_new_game(["David"], 8, 11, ["Manfred"], data)
+data = record_new_game(["Manfred"], 12, 10, ["Brandon"], data)
+data = record_new_game(["David"], 11, 9, ["Manfred"], data)
+data = record_new_game(["David"], 11, 9, ["Brandon"], data)
 
+data = record_new_game(["Brandon"], 11, 7, ["Oliver"], data)
+data = record_new_game(["Brandon", "Oliver"], 11, 6, ["Manfred", "Shilei"], data)
+data = record_new_game(["Brandon", "Oliver"], 11, 9, ["Manfred", "David"], data)
+data = record_new_game(["Brandon", "Oliver"], 11, 5, ["David", "Shilei"], data)
+data = record_new_game(["Oliver"], 11, 8, ["Manfred"], data)
+
+
+# Sort data by elo
 data = OrderedDict(sorted(data.items(),
        key = lambda x: getitem(x[1], 'elo'), reverse=True))
 
-print('| Name | elo | elo_change | game_played | win | loss | w/l |')
+print('| Name    | elo   | elo_change | game_played | win  | loss | w/l  |')
 for player, value in data.items():
     if value["game_played"] >= 10:
-        print(player + "{:8} {:7} {:10} {:10} {:6} {:6}".format(value["elo"], value["elo_change"], value["game_played"], value["win"], value["loss"], value["w/l"]))
+        print(f'| {player:<7} | {value["elo"]:<5} | {value["elo_change"]:<10} | {value["game_played"]:<11} | {value["win"]:<4} | {value["loss"]:<4} | {value["w/l"]:<4} |')
 
 with open("elo_rating.json", "w") as json_file:
-    json.dump(data, json_file)
+    json_file.write("{\n")
+    for i, (player, value) in enumerate(data.items()):
+        json_file.write(f'    "{player}": {{"elo": {value["elo"]}, "elo_change": {value["elo_change"]}, "game_played": {value["game_played"]}, "win": {value["win"]}, "loss": {value["loss"]}, "w/l": {value["w/l"]}}}')
+        if i < len(data) - 1:
+            json_file.write(",\n")
+        else:
+            json_file.write("\n")
+    json_file.write("}\n")
